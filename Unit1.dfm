@@ -1,0 +1,33 @@
+object frmGraphQL: TfrmGraphQL
+  Left = 0
+  Top = 0
+  Caption = 'GraphQL'
+  ClientHeight = 68
+  ClientWidth = 254
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Position = poScreenCenter
+  TextHeight = 15
+  object btnNativo: TButton
+    Left = 8
+    Top = 8
+    Width = 113
+    Height = 57
+    Caption = 'Req Nativo'
+    TabOrder = 0
+    OnClick = btnNativoClick
+  end
+  object btnComponente: TButton
+    Left = 127
+    Top = 8
+    Width = 114
+    Height = 57
+    Caption = 'Req Componente'
+    TabOrder = 1
+    OnClick = btnComponenteClick
+  end
+end

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/11/12 08:57:54.000.215,=C:\Users\DevMMenezes\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/01/11 08:49:14.429,=C:\Users\DevMMenezes\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/01/11 08:57:42.373,C:\Users\DevMMenezes\Desktop\Teste GraphQL\Unit1.dfm=C:\Users\DevMMenezes\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/01/11 08:57:42.373,C:\Users\DevMMenezes\Desktop\Teste GraphQL\Unit1.pas=C:\Users\DevMMenezes\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/01/11 08:57:44.662,C:\Users\DevMMenezes\Desktop\Teste GraphQL\Project1.dproj=C:\Users\DevMMenezes\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/01/11 10:32:18.131,C:\Users\DevMMenezes\Desktop\Teste GraphQL\GraphQL.dproj=C:\Users\DevMMenezes\Desktop\Teste GraphQL\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

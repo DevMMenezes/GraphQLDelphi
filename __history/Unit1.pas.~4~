@@ -1,0 +1,80 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, IdHTTP, IdSSLOpenSSL, Vcl.StdCtrls,
+  System.JSON, RESTRequest4D;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  IdHTTP: TIdHTTP;
+  SSLHandler: TIdSSLIOHandlerSocketOpenSSL;
+  Response: string;
+  Lista: TStringList;
+  JSON: TJSONObject;
+  JsonToSend: TStringStream;
+begin
+  IdHTTP := TIdHTTP.Create(nil);
+  SSLHandler := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+  Lista := TStringList.Create;
+  JSON := TJSONObject.Create;
+
+  try
+    IdHTTP.HTTPOptions := [hoKeepOrigProtocol];
+
+    SSLHandler.SSLOptions.SSLVersions := [sslvTLSv1, sslvTLSv1_1, sslvTLSv1_2];
+    IdHTTP.IOHandler := SSLHandler;
+
+    JSON.AddPair('query', '{company{ceo}roadster{apoapsis_au}}');
+
+    JsonToSend := TStringStream.Create
+      ('query{company{ceo}roadster{apoapsis_au}}');
+
+    Response := IdHTTP.Post('https://spacex-production.up.railway.app/',
+      JsonToSend);
+
+    showmessage(Response);
+  finally
+    IdHTTP.Free;
+    SSLHandler.Free;
+    Lista.Free;
+  end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  JSON: TJSONObject;
+  LResponse: IResponse;
+begin
+  JSON := TJSONObject.Create;
+
+  JSON.AddPair('query', '{company{ceo}roadster{apoapsis_au}}');
+  LResponse := TRequest.New.BaseURL('https://spacex-production.up.railway.app/')
+    .ContentType('application/json').AddBody(JSON).Post;
+
+  showmessage(LResponse.Content);
+end;
+
+end.
